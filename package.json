@@ -1,6 +1,6 @@
 {
   "name": "webmail-gitlab-webhook",
-  "version": "0.1.0-snapshot",
+  "version": "0.2.0",
   "description": "gitlab webhooks for webmail",
   "main": "main.js",
   "author": "Doojin Bek",
