@@ -12,14 +12,11 @@ module.exports={
 };
 
 function pull_webmail(dir) {
-  var webmail_uid=33;
-  var webmail_gid=33;
-
   // Spawn a new git process.
-  var proc=spawn("/usr/bin/git", ["pull"], {
+  var args="-u www-data -g www-data -H git pull".split(" ");
+  var proc=spawn("/usr/bin/sudo", args, {
     "cwd" : dir,
-    "uid" : webmail_uid,
-    "gid" : webmail_gid
+    "env" : process.env
   });
 
   proc.on('exit', function (code, signal) {
