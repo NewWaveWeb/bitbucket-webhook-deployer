@@ -1,0 +1,11 @@
+{
+  "name": "webmail-gitlab-webhook",
+  "version": "0.1.0",
+  "description": "gitlab webhooks for webmail",
+  "main": "main.js",
+  "author": "Doojin Bek",
+  "license": "MIT",
+  "dependencies": {
+    "gitlabhook": "0.0.11"
+  }
+}
