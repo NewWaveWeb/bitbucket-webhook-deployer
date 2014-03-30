@@ -8,7 +8,7 @@ module.exports={
   "webmail-production" : function () {
     pull_webmail("/data/www/webmail");
   }
-}
+};
 
 function pull_webmail(dir) {
   var webmail_uid=33;

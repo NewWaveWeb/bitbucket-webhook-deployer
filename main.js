@@ -1,7 +1,9 @@
-var config=require("./repository-config");
+var config=require("./config");
+var repoCb=require("./repository-callback");
 var gitlabhook = require('gitlabhook');
+
 var gitlab = gitlabhook({
-  "port" : "3240",
+  "port" : config.port,
   "logger" : {
     "info" : function (data) {
       console.log("==INFO==");
@@ -15,8 +17,8 @@ var gitlab = gitlabhook({
 }, function (data) {
   var repo=data.repository.name;
   // If repository is defined in repository-config.js, execute it.
-  if(config[repo]) {
-    config[repo]();
+  if(repoCb[repo]) {
+    repoCb[repo]();
   }
 });
 
