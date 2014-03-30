@@ -6,6 +6,7 @@
   "author": "Doojin Bek",
   "license": "MIT",
   "dependencies": {
-    "gitlabhook": "0.0.11"
+    "gitlabhook": "0.0.11",
+    "sprintf-js": "0.0.7"
   }
 }

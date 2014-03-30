@@ -1,4 +1,5 @@
 var spawn=require("child_process").spawn;
+var sprintf=require("sprintf-js").sprintf;
 
 // Module object keys are gitlab repository names.
 module.exports={
@@ -15,9 +16,15 @@ function pull_webmail(dir) {
   var webmail_gid=33;
 
   // Spawn a new git process.
-  return spawn("/usr/bin/git", ["pull"], {
+  var proc=spawn("/usr/bin/git", ["pull"], {
     "cwd" : dir,
     "uid" : webmail_uid,
     "gid" : webmail_gid
   });
+
+  proc.on('exit', function (code, signal) {
+    console.log(sprintf("git pull on %s exited with code %d", dir, code));
+  });
+
+  return proc;
 }
