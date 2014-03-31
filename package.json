@@ -1,12 +1,16 @@
 {
-  "name": "webmail-gitlab-webhook",
-  "version": "0.2.0",
-  "description": "gitlab webhooks for webmail",
+  "name": "gitlab-pull-webhook",
+  "version": "0.3.0",
+  "description": "pull git repositories on gitlab webhook signals.",
   "main": "main.js",
   "author": "Doojin Bek",
   "license": "MIT",
   "dependencies": {
     "gitlabhook": "0.0.11",
     "sprintf-js": "0.0.7"
+  },
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-replace": "^0.2.0"
   }
 }
