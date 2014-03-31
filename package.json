@@ -1,6 +1,6 @@
 {
   "name": "gitlab-pull-webhook",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "pull git repositories on gitlab webhook signals.",
   "main": "main.js",
   "author": "Doojin Bek",
@@ -16,5 +16,10 @@
   "devDependencies": {
     "gulp": "^3.6.0",
     "gulp-replace": "^0.2.0"
-  }
+  },
+  "keywords" : [
+    "gitlab",
+    "pull",
+    "webhook"
+  ]
 }
