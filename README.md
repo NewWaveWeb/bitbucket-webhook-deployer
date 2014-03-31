@@ -1,6 +1,7 @@
 # Introduction
 
-It listens to gitlab webhook push events and pulls repositories configured in config.js
+It listens to gitlab webhook push events and pulls repositories configured in config.js.
+Currently, it runs on GNU/Linux and BSD OSes only, and it can only run in a startup script for now.
 
 # Build & Runtime Dependencies
 
