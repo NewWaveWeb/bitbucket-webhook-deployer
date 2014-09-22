@@ -1,14 +1,27 @@
-var spawn=require("child_process").spawn;
+//var spawn=require("child_process").spawn;
+var exec=require("child_process").exec;
 var sprintf=require("sprintf-js").sprintf;
-var path=require("path");
 var configDir=require("./configDir");
-var config=require(path.join(configDir, "config"));
+var config=require(configDir);
 
-module.exports = function (repo) {
-    var repoCfg=config.repositories[repo],
-        dir=repoCfg.dir,
+module.exports = function (data) {
+    var repo=data.repository.name.replace(/\s/g, ''),
+        payloadBranch=data.ref.split('/').pop(),
+        repoCfg=config.repositories[repo],
+        name=repoCfg.name,
+        basepath=repoCfg.basepath,
+        command=repoCfg.command,
+        branch=repoCfg.branch,
         msg, cmd, proc;
 
+    if(payloadBranch != branch){
+       msg=sprintf(
+            "Branch '%s' is not defined, skipping.",
+            payloadBranch);
+        console.log(msg);
+        return undefined; 
+    }
+    
     if(!repoCfg) {
         msg=sprintf(
             "Configuration for '%s' doesn't exist",
@@ -19,25 +32,25 @@ module.exports = function (repo) {
 
     // Spawn a new git process.
     cmd=sprintf(
-        "/usr/bin/sudo -u %(user)s -g %(group)s -H git pull",
+        "cd %(basepath)s && %(command)s",
         repoCfg);
 
-    console.log("Executing " + cmd);
-    proc=spawnCommand(cmd, dir);
+    console.log("Executing " + cmd +" process "+name);
+    proc=execCommand(cmd);
 
     proc.on('exit', function (code, signal) {
-        console.log(sprintf("git pull on %s exited with code %d", dir, code));
+        console.log(sprintf("command %s exited with code %d", command, code));
     });
 
     return proc;
 }
 
-function spawnCommand(cmd, dir) {
-    var args=cmd.split(" ");
-    cmd=args.splice(0, 1)[0];
-
-    return spawn(cmd, args, {
-        "cwd": dir,
-        "env" : process.env
+function execCommand(cmd) {
+   return exec(cmd, function(error, stdout, stderr) {
+    console.log('stdout: ', stdout);
+    console.log('stderr: ', stderr);
+        if (error !== null) {
+            console.log('exec error: ', error);
+        }
     });
 }
