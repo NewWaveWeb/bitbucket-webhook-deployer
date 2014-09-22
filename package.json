@@ -1,9 +1,9 @@
 {
-  "name": "gitlab-pull-webhook",
+  "name": "gitlab-webhook-deployer",
   "version": "0.3.3",
-  "description": "pull git repositories on gitlab webhook signals.",
+  "description": "run commands on gitlab webhook signals.",
   "main": "main.js",
-  "author": "Doojin Bek",
+  "author": "New Wave Web",
   "license": "LGPL",
   "dependencies": {
     "gitlabhook": "0.0.11",
@@ -11,11 +11,9 @@
   },
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/crocket/gitlab-pull-webhook"
+    "url" : "https://github.com/NewWaveWeb/gitlab-webhook-deployer.git"
   },
   "devDependencies": {
-    "gulp": "^3.6.0",
-    "gulp-replace": "^0.2.0"
   },
   "keywords" : [
     "gitlab",

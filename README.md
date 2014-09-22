@@ -1,21 +1,17 @@
 # Introduction
 
-It listens to gitlab webhook push events and pulls repositories configured in config.js.
-Currently, it runs on GNU/Linux and BSD OSes only, and it can only run in a startup script for now.
+It listens to gitlab webhook push events and run commands for repositories configured in config.js.
+Currently, it runs on GNU/Linux and BSD OSes only.
 
 # Build & Runtime Dependencies
 
 * nodejs >= 0.10.x
 * npm >= 1.4.x
 
-# Installation on ubuntu
+# Installation
 
 * `cd any-installation-dir`
-* `sudo git clone gitlab-pull-webhook-url`
-* `cd gitlab-pull-webhook`
-* `sudo npm install`
-* `sudo npm install -g gulp`
-* `sudo gulp install-ubuntu`
-  * Copies config.js into the directory specified by configDir.js
-  * Copies 'gitlab-pull-webhook' startup script to /etc/init
-* `sudo start gitlab-pull-webhook` starts the startup script manually
+* `git clone https://github.com/NewWaveWeb/gitlab-webhook-deployer.git `
+* `cd gitlab-webhook-deployer`
+* `npm install`
+* `node main.js` starts the startup script manually
