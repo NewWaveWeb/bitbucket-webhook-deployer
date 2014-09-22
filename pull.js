@@ -1,4 +1,3 @@
-//var spawn=require("child_process").spawn;
 var exec=require("child_process").exec;
 var sprintf=require("sprintf-js").sprintf;
 var configDir=require("./configDir");
@@ -30,7 +29,6 @@ module.exports = function (data) {
         return undefined;
     }
 
-    // Spawn a new git process.
     cmd=sprintf(
         "cd %(basepath)s && %(command)s",
         repoCfg);
