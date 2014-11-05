@@ -4,7 +4,7 @@ var configDir=require("./configDir");
 var config=require(configDir);
 
 module.exports = function (data) {
-    var repo=data.repository.name.replace(/\s/g, ''),
+    /*var repo=data.repository.name.replace(/\s/g, ''),
         payloadBranch=data.ref.split('/').pop(),
         repoCfg=config.repositories[repo],
         name=repoCfg.name,
@@ -51,4 +51,5 @@ function execCommand(cmd) {
             console.log('exec error: ', error);
         }
     });
+*/
 }

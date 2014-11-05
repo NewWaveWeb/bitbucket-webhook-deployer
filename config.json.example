@@ -1,6 +1,5 @@
 {
-    "host" : "0.0.0.0",
-    "port" : 8889,
+    "port" : 8989,
     "repositories" : {
         "[repository name]" : {
             "name":"[my super cool name]",

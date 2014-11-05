@@ -1,6 +1,6 @@
 # Introduction
 
-It listens to gitlab webhook push events and run commands for repositories configured in config.js.
+It listens to bitbucket webhook push events and run commands for repositories configured in config.js.
 Currently, it runs on GNU/Linux and BSD OSes only.
 
 # Build & Runtime Dependencies
@@ -11,8 +11,8 @@ Currently, it runs on GNU/Linux and BSD OSes only.
 # Installation
 
 * `cd any-installation-dir`
-* `git clone https://github.com/NewWaveWeb/gitlab-webhook-deployer.git `
-* `cd gitlab-webhook-deployer`
+* `git clone https://github.com/NewWaveWeb/bitbucket-webhook-deployer.git `
+* `cd bitbucket-webhook-deployer`
 * `npm install`
 
 ## config.json
@@ -20,7 +20,6 @@ Currently, it runs on GNU/Linux and BSD OSes only.
 * `cp config.json.example /path/to/your/config.json` then set up your repositories:
 ```
 {
-    "host" : "0.0.0.0",
     "port" : 8889,
     "repositories" : {
         "[repository name]" : {
@@ -42,7 +41,6 @@ module.exports="/path/to/your/config.json";
  
 * `node main.js` starts the startup script manually
 
-## Setup the webhook at Gitlab
+## Setup the webhook
 
-* Go to your git lab installation: `http://your.gitlab.domain/user/project-name/hooks` 
 * Set the webhook url: `http://your.webhook.domain:port`

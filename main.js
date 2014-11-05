@@ -1,13 +1,16 @@
 var configDir=require("./configDir");
 var config=require(configDir);
-var gitlabhook = require('gitlabhook');
 var pull = require("./pull");
+var express = require('express');
+var app = module.exports = express();
+app.use(require('body-parser')());
 
-var gitlab = gitlabhook({
-    "host" : config.host,
-    "port" : config.port
-}, function (data) {
-    pull(data);
+
+var server = app.listen(config.port, function () {
+    app.post('*', function(req, res){
+            var payload = req.body.payload;
+            pull(payload);
+            res.send(200);
+    });
+    console.info("Express server listening for POST requests on port %d", this.address().port);
 });
-
-gitlab.listen();
