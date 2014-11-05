@@ -1,1 +1,1 @@
-module.exports="/etc/gitlab-webhook-deployer/config.json";
+module.exports="/etc/bitbucket-webhook-deployer/config.json";

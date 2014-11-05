@@ -4,8 +4,8 @@ var configDir=require("./configDir");
 var config=require(configDir);
 
 module.exports = function (data) {
-    /*var repo=data.repository.name.replace(/\s/g, ''),
-        payloadBranch=data.ref.split('/').pop(),
+    var repo=data.repository.name,
+        payloadBranch=data.commits[0].branch,
         repoCfg=config.repositories[repo],
         name=repoCfg.name,
         basepath=repoCfg.basepath,
@@ -18,9 +18,9 @@ module.exports = function (data) {
             "Branch '%s' is not defined, skipping.",
             payloadBranch);
         console.log(msg);
-        return undefined; 
+        return undefined;
     }
-    
+
     if(!repoCfg) {
         msg=sprintf(
             "Configuration for '%s' doesn't exist",
@@ -51,5 +51,5 @@ function execCommand(cmd) {
             console.log('exec error: ', error);
         }
     });
-*/
+
 }

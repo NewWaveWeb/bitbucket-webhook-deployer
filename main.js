@@ -8,7 +8,8 @@ app.use(require('body-parser')());
 
 var server = app.listen(config.port, function () {
     app.post('*', function(req, res){
-            var payload = req.body.payload;
+            
+            var payload = JSON.parse(req.body.payload);
             pull(payload);
             res.send(200);
     });
